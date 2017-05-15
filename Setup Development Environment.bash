@@ -689,7 +689,7 @@ init() {
 	git config include.path ../.gitconfig\
 		&& printf "done\n"
 
-	printf "Fetching submodules.."
+	printf "Fetching submodules..."
 	git submodule update --init --recursive\
 		&& printf "done\n"\
 		|| printf "failed\n"
