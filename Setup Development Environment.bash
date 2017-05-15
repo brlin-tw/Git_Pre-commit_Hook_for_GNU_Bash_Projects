@@ -698,9 +698,11 @@ init() {
 	printf "Setting Git Hooks..."
 	ln \
 		--symbolic\
+		--relative\
+		--force\
 		--verbose\
 		"${RUNTIME_EXECUTABLE_DIRECTORY}/Pre-commit Script.bash"\
-		"${SHC_PREFIX_DIR}/.git/hooks/pre-commit"\
+		"${GIT_DIR}/hooks/pre-commit"\
 		&& printf "done\n"\
 		|| printf "failed\n"
 
