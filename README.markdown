@@ -1,4 +1,5 @@
 # 用於 GNU Bash 專案的 Git 提交版本前掛勾程式<br>Git Pre-commit Hook for GNU Bash Projects
+[![Build Status of the Latest Revision of the Project](https://travis-ci.org/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects.svg?branch=master)](https://travis-ci.org/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects)  
 Check all changes in GNU Bash script on commit!
 
 <https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects>
