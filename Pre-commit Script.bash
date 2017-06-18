@@ -61,7 +61,13 @@ init(){
 			printf "%s: ERROR: ShellCheck failed, please check your script.\n" "${RUNTIME_EXECUTABLE_NAME}" 1>&2
 			exit "1"
 		fi
-	done < <(find . -name "*.bash" -type f -print0) # this is a process substitution
+		done < <(\
+		find\
+			.\
+			-name "*.bash"\
+			-type f\
+			-print0
+	) # this is a process substitution
 
 	popd >/dev/null
 
