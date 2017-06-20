@@ -56,7 +56,7 @@ init(){
 	# http://stackoverflow.com/questions/8677546/bash-for-in-looping-on-null-delimited-string-variable
 	while IFS="" read -r -d '' file; do
 		printf "Checking %s...\n" "${file}"
-		if ! shellcheck "${file}"; then
+		if ! shellcheck --shell=bash "${file}"; then
 			check_result="FAILED"
 		fi
 		done < <(\
