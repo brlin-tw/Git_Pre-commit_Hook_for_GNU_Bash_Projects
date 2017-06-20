@@ -700,7 +700,7 @@ init() {
 		--relative\
 		--force\
 		--verbose\
-		"${RUNTIME_EXECUTABLE_DIRECTORY}/Pre-commit Script.bash"\
+		"${RUNTIME_EXECUTABLE_DIRECTORY}/Git Pre-commit Hook for GNU Bash Projects.bash"\
 		"${GIT_DIR}/hooks/pre-commit"\
 		&& printf "done\n"\
 		|| printf "failed\n"
