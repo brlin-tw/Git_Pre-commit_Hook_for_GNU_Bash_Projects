@@ -47,7 +47,7 @@ init(){
 		| git checkout-index --stdin -z --prefix="${global_temp_directory}/"
 
 	# Run ShellCheck on all scripts
-	declare -i check_result="0";
+	declare check_result="UNKNOWN";
 
 	# Change to staging dir so that we can only show relative path to the script instead of long ugly path including tmpdir path
 	pushd "${global_temp_directory}" >/dev/null
@@ -56,10 +56,8 @@ init(){
 	# http://stackoverflow.com/questions/8677546/bash-for-in-looping-on-null-delimited-string-variable
 	while IFS="" read -r -d '' file; do
 		printf "Checking %s...\n" "${file}"
-		shellcheck "${file}" || check_result="${?}"
-		if [ "${check_result}" -ne 0 ]; then
-			printf "%s: ERROR: ShellCheck failed, please check your script.\n" "${RUNTIME_EXECUTABLE_NAME}" 1>&2
-			exit "1"
+		if ! shellcheck "${file}"; then
+			check_result="FAILED"
 		fi
 		done < <(\
 		find\
@@ -71,6 +69,10 @@ init(){
 
 	popd >/dev/null
 
+	if [ "${check_result}" == "FAILED" ]; then
+		printf "%s: ERROR: ShellCheck failed, please check your script.\n" "${RUNTIME_EXECUTABLE_NAME}" 1>&2
+		exit "1"
+	fi
 	printf "%s: ShellCheck succeeded.\n" "${RUNTIME_EXECUTABLE_NAME}"
 	exit 0
 }; declare -fr init
