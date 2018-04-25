@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#shellcheck disable=SC2034
+# shellcheck disable=SC2034
 # Comments prefixed by BASHDOC: are hints to specific GNU Bash Manual's section:
 # https://www.gnu.org/software/bash/manual/
 
@@ -59,7 +59,7 @@ init(){
 		if ! shellcheck --shell=bash "${file}"; then
 			check_result='FAILED'
 		fi
-		done < <(\
+	done < <(\
 		find\
 			.\
 			-name '*.bash'\
