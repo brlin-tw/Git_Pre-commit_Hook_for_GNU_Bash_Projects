@@ -43,6 +43,8 @@ init(){
 	fi
 
 	# Checkout all scripts from staging area to temp folder
+	# False positive of SC2026
+	# shellcheck disable=SC2026
 	git diff -z --cached --name-only --diff-filter=ACM '*.bash'\
 		| git checkout-index --stdin -z --prefix="${global_temp_directory}/"
 
@@ -54,6 +56,8 @@ init(){
 
 	# delimiter - bash "for in" looping on null delimited string variable - Stack Overflow
 	# http://stackoverflow.com/questions/8677546/bash-for-in-looping-on-null-delimited-string-variable
+	# False positive
+	# shellcheck disable=SC2026
 	while IFS='' read -r -d '' file; do
 		printf 'Checking %s...\n' "${file}"
 		if ! shellcheck --shell=bash "${file}"; then
