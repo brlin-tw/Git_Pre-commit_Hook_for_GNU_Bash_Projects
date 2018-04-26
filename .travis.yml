@@ -6,6 +6,9 @@
 ## Use container-based infrastructure for quicker build start-up
 sudo: false
 
+git:
+  submodules: false
+
 addons:
   apt:
     packages:
@@ -26,6 +29,8 @@ git:
 install:
 
 before_script:
+- git submodule init
+- git submodule update 'GNU Bash Automatic Checking Program for Git Projects'
 
 script:
 - ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
