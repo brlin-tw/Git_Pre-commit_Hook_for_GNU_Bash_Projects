@@ -6,9 +6,6 @@
 ## Use container-based infrastructure for quicker build start-up
 sudo: false
 
-git:
-  submodules: false
-
 addons:
   apt:
     packages:
@@ -19,12 +16,14 @@ dist: trusty
 
 language: bash
 
-## EXPERIMENTAL
-## Customizing the Build - Travis CI
-## https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
-## > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won’t build commits that are in the queue when you push a new commit.
 git:
+## EXPERIMENTAL
+  ### Customizing the Build - Travis CI
+  ### https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
+  ### > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won’t build commits that are in the queue when you push a new commit.
   depth: 1
+  ### Whether or not update submdodules recursively before build
+  submodules: false
 
 install:
 
