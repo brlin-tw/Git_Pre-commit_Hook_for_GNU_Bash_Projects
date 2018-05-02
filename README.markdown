@@ -8,7 +8,7 @@ Check all changes in GNU Bash script on commit!
 
 This project has been superseded by [pre-commit - A framework for managing and maintaining multi-language pre-commit hooks](https://pre-commit.com/), which is far more flexible and feature-rich than this project can provide.  It is recommended to use that instead.
 
-A sample pre-commit configuration and Travis CIhas applied to this project for reference, checkout the .pre-commit-config.yaml and .travis.yml file for more info.
+A sample pre-commit configuration and Travis CI has applied to this project for reference, checkout the .pre-commit-config.yaml and .travis.yml file for more info.
 
 ## 作者<br>Author
 
