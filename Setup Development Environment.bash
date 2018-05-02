@@ -690,7 +690,8 @@ init() {
 		&& printf "done\n"
 
 	printf "Fetching submodules..."
-	git submodule update --init --recursive\
+	git submodule init 'GNU Bash Automatic Checking Program for Git Projects' 'Git Clean and Smudge Filters/Clean Filter for GNU Bash Scripts'
+	git submodule update --depth=30\
 		&& printf "done\n"\
 		|| printf "failed\n"
 
