@@ -26,11 +26,21 @@ git:
   submodules: false
 
 before_install:
-- git submodule init 'GNU Bash Automatic Checking Program for Git Projects'
+- git submodule init 'GNU Bash Automatic Checking Program for Git Projects' 'Utilities for Travis CI'
 - git submodule update --depth=30
+
+install:
+- ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
+- PATH="${HOME}/Software/shellcheck-stable:${PATH}"
+- which shellcheck
+- shellcheck --version
 
 script:
 - ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
+
+cache:
+  directories:
+  - $HOME/Software
 
 matrix:
   fast_finish: true

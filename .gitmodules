@@ -7,3 +7,6 @@
 	url = https://github.com/Lin-Buo-Ren/GNU-Bash-Automatic-Checking-Program-for-Git-Projects
 	fetchRecurseSubmodules = no
 	ignore = untracked
+[submodule "Utilities for Travis CI"]
+	path = Utilities for Travis CI
+	url = https://github.com/Lin-Buo-Ren/Utilities-for-Travis-CI
