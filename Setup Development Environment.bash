@@ -73,7 +73,7 @@ init() {
 		# It is intended design to make the variable change lost outside subshell
 		# shellcheck disable=SC2030
 		export GIT_DIR="${GIT_WORK_TREE}/.git"
-		
+
 		cd "${GIT_WORK_TREE}"
 		git submodule init \
 			'Code Formatters and Beautifiers/the Bash Script Beautifier'
@@ -765,7 +765,7 @@ meta_fsis_setup_application_metadata
 
 ## This script is based on the GNU Bash Shell Script Template project
 ## https://github.com/Lin-Buo-Ren/GNU-Bash-Shell-Script-Template
-## and is based on the following version: 
+## and is based on the following version:
 ## GNU_BASH_SHELL_SCRIPT_TEMPLATE_VERSION="v3.0.16-1-g9d1ae36"
 ## You may rebase your script to incorporate new features and fixes from the template
 
