@@ -25,9 +25,7 @@ git:
   ### Whether or not update submdodules recursively before build
   submodules: false
 
-install:
-
-before_script:
+before_install:
 - git submodule init 'GNU Bash Automatic Checking Program for Git Projects'
 - git submodule update --depth=30
 
