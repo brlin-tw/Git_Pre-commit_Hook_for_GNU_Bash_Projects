@@ -4,7 +4,8 @@ Check all changes in GNU Bash script on commit!
 
 <https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects>
 
-## 作者
+## 作者<br>Author
+
 林博仁 et. al.
 
 ## 智慧財產授權條款<br>Intellectual Property License
