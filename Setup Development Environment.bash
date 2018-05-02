@@ -89,7 +89,7 @@ init() {
 		--relative \
 		--force \
 		--verbose \
-		"${RUNTIME_EXECUTABLE_DIRECTORY}/Git Pre-commit Hook for GNU Bash Projects.bash" \
+		"${RUNTIME_EXECUTABLE_DIRECTORY}/pre-commit.bash" \
 		"${GIT_DIR}/hooks/pre-commit" \
 		&& printf 'done\n' \
 		|| printf 'failed\n'

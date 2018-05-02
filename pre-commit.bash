@@ -25,7 +25,7 @@ set -o pipefail
 RUNTIME_EXECUTABLE_FILENAME="$(basename "${BASH_SOURCE[0]}")"
 declare -r RUNTIME_EXECUTABLE_FILENAME
 declare -r RUNTIME_EXECUTABLE_NAME="${RUNTIME_EXECUTABLE_FILENAME%.*}"
-RUNTIME_EXECUTABLE_DIRECTORY="$(dirname "$(realpath --strip "${0}")")"
+RUNTIME_EXECUTABLE_DIRECTORY="$(dirname "$(realpath "${0}")")"
 declare -r RUNTIME_EXECUTABLE_DIRECTORY
 declare -r RUNTIME_EXECUTABLE_PATH_ABSOLUTE="${RUNTIME_EXECUTABLE_DIRECTORY}/${RUNTIME_EXECUTABLE_FILENAME}"
 declare -r RUNTIME_EXECUTABLE_PATH_RELATIVE="${0}"
@@ -35,6 +35,8 @@ declare global_temp_directory
 
 ## init function: program entrypoint
 init(){
+	source "${RUNTIME_EXECUTABLE_DIRECTORY}/APPLICATION_METADATA.source"
+
 	check_runtime_dependencies
 
 	if ! create_temp_directory; then
@@ -59,11 +61,14 @@ init(){
 	# False positive
 	# shellcheck disable=SC2026
 	while IFS='' read -r -d '' file; do
-		printf 'Checking %s...\n' "${file}"
+		printf -- \
+			'%s: Checking %s...\n' \
+			"${META_APPLICATION_NAME}" \
+			"${file}"
 		if ! shellcheck --shell=bash "${file}"; then
 			check_result='FAILED'
 		fi
-	done < <(\
+		done < <(\
 		find\
 			.\
 			-name '*.bash'\
@@ -74,10 +79,15 @@ init(){
 	popd >/dev/null
 
 	if [ "${check_result}" == 'FAILED' ]; then
-		printf '%s: ERROR: ShellCheck failed, please check your script.\n' "${RUNTIME_EXECUTABLE_NAME}" 1>&2
+		printf -- \
+			'%s: ERROR: ShellCheck failed, please check your script.\n' \
+			"${META_APPLICATION_NAME}" \
+			1>&2
 		exit 1
 	fi
-	printf '%s: ShellCheck succeeded.\n' "${RUNTIME_EXECUTABLE_NAME}"
+	printf -- \
+		'%s: ShellCheck succeeded.\n' \
+		"${META_APPLICATION_NAME}"
 	exit 0
 }; declare -fr init
 
