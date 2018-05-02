@@ -35,6 +35,8 @@ declare global_temp_directory
 
 ## init function: program entrypoint
 init(){
+	# Simple definition file, don't bother
+	# shellcheck source=/dev/null
 	source "${RUNTIME_EXECUTABLE_DIRECTORY}/APPLICATION_METADATA.source"
 
 	check_runtime_dependencies
@@ -68,11 +70,11 @@ init(){
 		if ! shellcheck --shell=bash "${file}"; then
 			check_result='FAILED'
 		fi
-		done < <(\
-		find\
-			.\
-			-name '*.bash'\
-			-type f\
+		done < <(
+		find \
+			. \
+			-name '*.bash' \
+			-type f \
 			-print0
 	) # this is a process substitution
 
@@ -100,7 +102,7 @@ create_temp_directory(){
 readonly -f create_temp_directory
 
 cleanUpBeforeNormalExit(){
-	rm -rf "${global_temp_directory}"\
+	rm -rf "${global_temp_directory}" \
 		|| printf '%s: Error: Failed to remove temp directory\n' "${RUNTIME_EXECUTABLE_NAME}" 1>&2
 	return 0
 }
