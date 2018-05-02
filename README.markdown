@@ -4,7 +4,7 @@ Check all changes in GNU Bash script on commit!
 
 <https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects>
 
-## Deprecated Notice
+## Deprecation Notice
 
 This project has been superseded by [pre-commit - A framework for managing and maintaining multi-language pre-commit hooks](https://pre-commit.com/), which is far more flexible and feature-rich than this project can provide.  It is recommended to use that instead.
 
