@@ -4,6 +4,12 @@ Check all changes in GNU Bash script on commit!
 
 <https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects>
 
+## Deprecated Notice
+
+This project has been superseded by [pre-commit - A framework for managing and maintaining multi-language pre-commit hooks](https://pre-commit.com/), which is far more flexible and feature-rich than this project can provide.  It is recommended to use that instead.
+
+A sample pre-commit configuration and Travis CIhas applied to this project for reference, checkout the .pre-commit-config.yaml and .travis.yml file for more info.
+
 ## 作者<br>Author
 
 林博仁 et. al.

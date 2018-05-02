@@ -36,9 +36,15 @@ install:
 - which shellcheck
 - shellcheck --version
 
+- pip install --user pre-commit
+
+before_script:
+- git diff-tree -z --no-commit-id --name-only -r HEAD | xargs --null pre-commit run --files
+
 script:
 - ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
 
 cache:
+  pip: true
   directories:
   - $HOME/Software
