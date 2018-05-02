@@ -26,9 +26,7 @@ addons:
     packages:
     - realpath      # Merged to GNU Coreutils in Ubuntu 16.04
 
-before_install:
-- git submodule init 'GNU Bash Automatic Checking Program for Git Projects' 'Utilities for Travis CI'
-- git submodule update --depth=30
+before_install: true
 
 install:
 - ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
@@ -41,8 +39,7 @@ install:
 before_script:
 - git diff-tree -z --no-commit-id --name-only -r HEAD | xargs --null pre-commit run --files
 
-script:
-- ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
+script: true
 
 cache:
   pip: true

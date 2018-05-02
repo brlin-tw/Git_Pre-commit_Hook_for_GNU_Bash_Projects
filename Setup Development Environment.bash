@@ -64,7 +64,6 @@ init() {
 
 	printf 'Fetching submodules...'
 	git submodule init \
-		'GNU Bash Automatic Checking Program for Git Projects' \
 		'Git Clean and Smudge Filters/Clean Filter for GNU Bash Scripts'
 	git submodule update --depth=30
 	(
