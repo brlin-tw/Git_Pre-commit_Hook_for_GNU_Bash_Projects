@@ -102,8 +102,11 @@ create_temp_directory(){
 readonly -f create_temp_directory
 
 cleanUpBeforeNormalExit(){
-	rm -rf "${global_temp_directory}" \
-		|| printf '%s: Error: Failed to remove temp directory\n' "${RUNTIME_EXECUTABLE_NAME}" 1>&2
+	# If temp directory isn't created yet, don't bother
+	if test -v global_temp_directory; then
+		rm -rf "${global_temp_directory}"\
+			|| printf "%s: Error: Failed to remove temp directory" "${RUNTIME_EXECUTABLE_NAME}" 1>&2
+	fi
 	return 0
 }
 declare -fr cleanUpBeforeNormalExit
